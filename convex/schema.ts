@@ -4,6 +4,10 @@ import { v } from "convex/values";
 export default defineSchema({
   tasks: defineTable({
     text: v.string(),
-    isCompleted: v.boolean(),
+    user: v.id("users"),
   }),
+  users: defineTable({
+    name: v.string(),
+    tokenIdentifier: v.string(),
+  }).index("by_token", ["tokenIdentifier"]),
 });

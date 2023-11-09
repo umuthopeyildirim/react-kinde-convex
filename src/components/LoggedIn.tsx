@@ -1,11 +1,23 @@
+import { FormEvent, useState } from "react";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
-import { useQuery } from "convex/react";
+import { useMutation, useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { Authenticated, Unauthenticated, AuthLoading } from "convex/react";
+import useStoreUserEffect from "../lib/useStoreUserEffect";
 
 export default function LoggedIn() {
+  const userId = useStoreUserEffect();
   const { user, logout } = useKindeAuth();
   const tasks = useQuery(api.tasks.get);
+
+  const [newTaskText, setNewTaskText] = useState("");
+  const sendTask = useMutation(api.tasks.send);
+
+  async function handleSendMessage(event: FormEvent) {
+    event.preventDefault();
+    await sendTask({ body: newTaskText });
+    setNewTaskText("");
+  }
 
   return (
     <>
@@ -55,6 +67,14 @@ export default function LoggedIn() {
             {tasks?.map(({ _id, text }) => (
               <div key={_id}>{text}</div>
             ))}
+            <form onSubmit={handleSendMessage}>
+              <input
+                value={newTaskText}
+                onChange={(event) => setNewTaskText(event.target.value)}
+                placeholder="Write a message…"
+              />
+              <input type="submit" value="Send" />
+            </form>
           </section>
         </div>
       </main>
