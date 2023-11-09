@@ -1,43 +1,44 @@
-# Kinde Starter Kit - React
+# Kinde Convex Custom Auth
 
-## Register an account on Kinde
+Currently not working, but it's a start. 😄
 
-To get started set up an account on [Kinde](https://app.kinde.com/register).
+This is a custom kinde auth for [Convex](https://www.convex.dev/).
 
-## Setup your local environment
+## Setup
 
-Clone this repo and install dependencies by running `npm i`
+Get your Kinde credentials from the kinde application (make sure you created a React single page app) and paste it to env file.
 
-Make a copy of `.env_sample` and name it simply `.env`. Set the following values from the Kinde `Settings -> Applications -> Frontend app` page.
+```env
+VITE_KINDE_CLIENT_ID=your_kinde_client_id
+VITE_KINDE_DOMAIN=https://your_subdomain.kinde.com
+VITE_KINDE_REDIRECT_URL=http://localhost:3000
+VITE_KINDE_LOGOUT_URL=http://localhost:3000
 
-- `VITE_KINDE_CLIENT_ID` with the `Client ID` value
-- `VITE_KINDE_DOMAIN` with the `Domain` value
-
-e.g
-
+# Deployment used by `pnpm convex dev`
+CONVEX_DEPLOYMENT=
+VITE_CONVEX_URL=
 ```
-VITE_KINDE_CLIENT_ID=<your_kinde_client_id>
-VITE_KINDE_DOMAIN=https://<your_kinde_subdomain>.kinde.com
+
+## Usage
+
+Open a terminal and run:
+
+```bash
+pnpm convex dev
 ```
 
-## Set your Callback and Logout URLs
+Open another terminal and run:
 
-Your user will be redirected to Kinde to authenticate. After they have logged in or registered they will be redirected back to your React application.
+```bash
+pnpm start
+```
 
-You need to specify in Kinde which url you would like your user to be redirected to in order to authenticate your app.
+## Curent Issues
 
-On the `Settings -> Applications -> Frontend app` page set `Allowed callback URLs` to `http://localhost:3000`
-
-> Important! This is required for your users to successfully log in to your app.
-
-You will also need to set the url they will be redirected to upon logout. Set the ` Allowed logout redirect URLs` to http://localhost:3000.
-
-## Start your app
-
-Run `npm start` in a terminal and navigate to `http://localhost:3000`.
-
-Click on `Sign up` and register your first user for your business!
-
-## View users in Kinde
-
-If you navigate to the "Users" page within Kinde you will see your newly registered user there. 🚀
+```json
+{
+  "type": "AuthError",
+  "error": "No auth provider found matching the given token",
+  "baseVersion": 0
+}
+```

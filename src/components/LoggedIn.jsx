@@ -1,7 +1,11 @@
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+import { useQuery } from "convex/react";
+import { api } from "../../convex/_generated/api";
+import { Authenticated, Unauthenticated, AuthLoading } from "convex/react";
 
 export default function LoggedIn() {
   const { user, logout } = useKindeAuth();
+  const tasks = useQuery(api.tasks.get);
 
   return (
     <>
@@ -44,7 +48,13 @@ export default function LoggedIn() {
             </p>
           </div>
           <section className="next-steps-section">
-            <h2 className="text-heading-1">Next steps for you</h2>
+            <Authenticated>Logged in</Authenticated>
+            <Unauthenticated>Logged out</Unauthenticated>
+            <AuthLoading>Still loading</AuthLoading>
+            <h2 className="text-heading-1">Tasks;</h2>
+            {tasks?.map(({ _id, text }) => (
+              <div key={_id}>{text}</div>
+            ))}
           </section>
         </div>
       </main>
