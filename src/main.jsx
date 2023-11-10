@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { KindeProvider } from "@kinde-oss/kinde-auth-react";
 import { ConvexProviderWithAuth, ConvexReactClient } from "convex/react";
 import { useAuthFromKinde } from "./lib/useAuthFromKinde.js";
+import { ConvexProviderWithKinde } from "./lib/ConvexProviderWithKinde";
 import App from "./App.jsx";
 import "./index.css";
 
@@ -15,12 +16,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       domain={import.meta.env.VITE_KINDE_DOMAIN}
       logoutUri={import.meta.env.VITE_KINDE_LOGOUT_URI}
       redirectUri={import.meta.env.VITE_KINDE_REDIRECT_URI}
-      audience={import.meta.env.VITE_KINDE_AUDIENCE}
+      audience="convex"
       isDangerouslyUseLocalStorage={true}
     >
-      <ConvexProviderWithAuth client={convex} useAuth={useAuthFromKinde}>
+      <ConvexProviderWithKinde client={convex}>
         <App />
-      </ConvexProviderWithAuth>
+      </ConvexProviderWithKinde>
     </KindeProvider>
   </React.StrictMode>
 );
