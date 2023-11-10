@@ -15,6 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       domain="https://luminarylightning.kinde.com"
       logoutUri="http://localhost:3000"
       redirectUri="http://localhost:3000"
+      audience="convex"
       isDangerouslyUseLocalStorage={true}
     >
       <ConvexProviderWithAuth client={convex} useAuth={useAuthFromKinde}>
