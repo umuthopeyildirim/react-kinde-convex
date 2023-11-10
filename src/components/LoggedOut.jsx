@@ -6,7 +6,7 @@ export default function LoggedOut() {
     <>
       <header>
         <nav className="nav container">
-          <h1 className="text-display-3">KindeAuth</h1>
+          <h1 className="text-display-3">KindeCorvexAuth</h1>
           <div>
             <button className="btn btn-ghost sign-in-btn" onClick={login}>
               Sign in
@@ -22,7 +22,7 @@ export default function LoggedOut() {
         <div className="container">
           <div className="card hero">
             <p className="text-display-1 hero-title">
-              Let's start authenticating <br /> with KindeAuth
+              Let&apos;s start authenticating <br /> with KindeAuth & Convex
             </p>
             <p className="text-body-1 hero-tagline">Configure your app</p>
 
@@ -40,7 +40,7 @@ export default function LoggedOut() {
 
       <footer className="footer">
         <div className="container">
-          <strong className="text-heading-2">KindeAuth</strong>
+          <strong className="text-heading-2">KindeAuth&Convex</strong>
           <p className="footer-tagline text-body-3">
             Visit our{" "}
             <a className="link" href="https://kinde.com/docs">

@@ -1,8 +1,6 @@
 # Kinde Convex Custom Auth
 
-Currently not working, but it's a start. 😄
-
-This is a custom kinde auth for [Convex](https://www.convex.dev/).
+This is a custom [Kinde](https://kinde.com/) auth for [Convex](https://www.convex.dev/).
 
 ## Setup
 
@@ -13,6 +11,7 @@ VITE_KINDE_CLIENT_ID=your_kinde_client_id
 VITE_KINDE_DOMAIN=https://your_subdomain.kinde.com
 VITE_KINDE_REDIRECT_URL=http://localhost:3000
 VITE_KINDE_LOGOUT_URL=http://localhost:3000
+VITE_KINDE_AUDIENCE="convex"
 
 # Deployment used by `pnpm convex dev`
 CONVEX_DEPLOYMENT=
@@ -27,18 +26,10 @@ Open a terminal and run:
 pnpm convex dev
 ```
 
+Contunue with the instructions or check out this [guide](https://docs.convex.dev/quickstart/react).
+
 Open another terminal and run:
 
 ```bash
 pnpm start
-```
-
-## Curent Issues
-
-```json
-{
-  "type": "AuthError",
-  "error": "No auth provider found matching the given token",
-  "baseVersion": 0
-}
 ```

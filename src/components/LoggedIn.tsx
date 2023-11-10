@@ -3,10 +3,9 @@ import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { Authenticated, Unauthenticated, AuthLoading } from "convex/react";
-import useStoreUserEffect from "../lib/useStoreUserEffect";
+import React from "react";
 
 export default function LoggedIn() {
-  const userId = useStoreUserEffect();
   const { user, logout } = useKindeAuth();
   const tasks = useQuery(api.tasks.get);
 
@@ -23,20 +22,12 @@ export default function LoggedIn() {
     <>
       <header>
         <nav className="nav container">
-          <h1 className="text-display-3">KindeAuth</h1>
+          <h1 className="text-display-3">KindeAuth & Convex</h1>
           <div className="profile-blob">
-            {user.picture !== "" ? (
-              <img
-                className="avatar"
-                src={user.picture}
-                alt="user profile avatar"
-              />
-            ) : (
-              <div className="avatar">
-                {user?.given_name?.[0]}
-                {user?.family_name?.[1]}
-              </div>
-            )}
+            <div className="avatar">
+              {user?.given_name?.[0]}
+              {user?.family_name?.[1]}
+            </div>
             <div>
               <p className="text-heading-2">
                 {user?.given_name} {user?.family_name}
@@ -81,7 +72,7 @@ export default function LoggedIn() {
 
       <footer className="footer">
         <div className="container">
-          <strong className="text-heading-2">KindeAuth</strong>
+          <strong className="text-heading-2">KindeAuth & Convex</strong>
           <p className="footer-tagline text-body-3">
             Visit our{" "}
             <a className="link" href="https://kinde.com/docs">
