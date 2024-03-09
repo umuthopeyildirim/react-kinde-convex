@@ -1,9 +1,13 @@
 import { FormEvent, useState } from "react";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
-import { useMutation, useQuery } from "convex/react";
+import {
+  useMutation,
+  useQuery,
+  Authenticated,
+  Unauthenticated,
+  AuthLoading,
+} from "convex/react";
 import { api } from "../../convex/_generated/api";
-import { Authenticated, Unauthenticated, AuthLoading } from "convex/react";
-import React from "react";
 
 export default function LoggedIn() {
   const { user, logout } = useKindeAuth();

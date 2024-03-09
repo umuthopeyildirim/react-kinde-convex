@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { KindeProvider } from "@kinde-oss/kinde-auth-react";
-import { ConvexProviderWithAuth, ConvexReactClient } from "convex/react";
-import { useAuthFromKinde } from "./lib/useAuthFromKinde.js";
-import { ConvexProviderWithKinde } from "./lib/ConvexProviderWithKinde";
+import { ConvexReactClient } from "convex/react";
+import { ConvexProviderWithKinde } from "@umuthopeyildirim/convex-kinde-auth";
 import App from "./App.jsx";
 import "./index.css";
 
